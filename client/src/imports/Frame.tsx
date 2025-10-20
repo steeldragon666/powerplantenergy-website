@@ -1,6 +1,6 @@
 import svgPaths from "./svg-zarx2dh95a";
-import imgImg from "figma:asset/e2d26e482ccb5c9b5eb16acb69dfbb106707d8f8.png";
-import imgUse11 from "figma:asset/b8da0d2e38dca0c74726ab3dc545c80b43e72139.png";
+import imgImg from "/assets/e2d26e482ccb5c9b5eb16acb69dfbb106707d8f8.png";
+import imgUse11 from "/assets/b8da0d2e38dca0c74726ab3dc545c80b43e72139.png";
 
 function LogoType() {
   return (

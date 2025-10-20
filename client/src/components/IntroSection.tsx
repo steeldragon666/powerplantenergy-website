@@ -1,5 +1,5 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import imgGradient from "figma:asset/478e4b247e5b6e4702d7984347746e9514bb5334.png";
+import imgGradient from "/assets/478e4b247e5b6e4702d7984347746e9514bb5334.png";
 
 interface IntroSectionProps {
   sustainableImage?: string;

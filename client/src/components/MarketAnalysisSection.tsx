@@ -1,4 +1,4 @@
-import imgGradient from "figma:asset/c922e7eebf2714905877e20d2530180d750f87fe.png";
+import imgGradient from "/assets/c922e7eebf2714905877e20d2530180d750f87fe.png";
 
 export default function MarketAnalysisSection() {
   const graphiteDrivers = [

@@ -1,8 +1,8 @@
 import svgPaths from "./svg-ld4pxqlsq";
-import imgImg from "figma:asset/e2d26e482ccb5c9b5eb16acb69dfbb106707d8f8.png";
-import imgImg1 from "figma:asset/478e4b247e5b6e4702d7984347746e9514bb5334.png";
-import imgImg2 from "figma:asset/c922e7eebf2714905877e20d2530180d750f87fe.png";
-import imgImg3 from "figma:asset/decab061ac81a01138c3b378118740afda1236d6.png";
+import imgImg from "/assets/e2d26e482ccb5c9b5eb16acb69dfbb106707d8f8.png";
+import imgImg1 from "/assets/478e4b247e5b6e4702d7984347746e9514bb5334.png";
+import imgImg2 from "/assets/c922e7eebf2714905877e20d2530180d750f87fe.png";
+import imgImg3 from "/assets/decab061ac81a01138c3b378118740afda1236d6.png";
 
 function LogoType() {
   return (

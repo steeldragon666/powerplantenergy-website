@@ -1,4 +1,4 @@
-import imgGradient from "figma:asset/9d08830d73ac68d798cb01e6045b08d28ab08da9.png";
+import imgGradient from "/assets/9d08830d73ac68d798cb01e6045b08d28ab08da9.png";
 import { Shield, Zap, Lock } from 'lucide-react';
 
 export default function DefenceSection() {

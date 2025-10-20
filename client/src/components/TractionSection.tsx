@@ -1,4 +1,4 @@
-import imgGradient1 from "figma:asset/478e4b247e5b6e4702d7984347746e9514bb5334.png";
+import imgGradient1 from "/assets/478e4b247e5b6e4702d7984347746e9514bb5334.png";
 
 export default function TractionSection() {
   return (

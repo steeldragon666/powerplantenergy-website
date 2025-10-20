@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
-import imgGradient from "figma:asset/e2d26e482ccb5c9b5eb16acb69dfbb106707d8f8.png";
+import imgGradient from "/assets/e2d26e482ccb5c9b5eb16acb69dfbb106707d8f8.png";
 
 export default function NewsSection() {
   const [scrollPosition, setScrollPosition] = useState(0);

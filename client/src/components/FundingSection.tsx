@@ -1,5 +1,5 @@
 import svgPaths from "../imports/svg-urns9myfok";
-import imgLandscape from "figma:asset/186001e6f78460078ac26abf709dbf30de0f0555.png";
+import imgLandscape from "/assets/186001e6f78460078ac26abf709dbf30de0f0555.png";
 
 export default function FundingSection() {
   const fundingTiers = [
