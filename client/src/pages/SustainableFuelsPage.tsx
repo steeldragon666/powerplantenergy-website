@@ -2,7 +2,7 @@ import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { Fuel, Plane, Ship, Truck, FlaskConical, Leaf, TrendingDown } from 'lucide-react';
-import bannerAlgae from '/assets/b65a6e80d5f7ad1ce46502d64cac4a85fafd9d29.png';
+import bannerAlgae from '/assets/9d08830d73ac68d798cb01e6045b08d28ab08da9.png';
 
 export default function SustainableFuelsPage() {
   const structuredData = {

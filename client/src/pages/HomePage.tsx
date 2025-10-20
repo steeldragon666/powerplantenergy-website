@@ -12,7 +12,7 @@ import TractionSection from '../components/TractionSection';
 import NewsSection from '../components/NewsSection';
 import SocialsSection from '../components/SocialsSection';
 import ImageBanner from '../components/ImageBanner';
-import bannerAlgae from '/assets/b65a6e80d5f7ad1ce46502d64cac4a85fafd9d29.png';
+import bannerAlgae from '/assets/9d08830d73ac68d798cb01e6045b08d28ab08da9.png';
 import bannerFerns from '/assets/bcde4468d71419aba6de35acbee5d378cbba56a1.png';
 import bannerLeafTexture from '/assets/43fa792d079af58b4e6e9c6ce3f7a30f47c3917a.png';
 import bannerLandscape from '/assets/947426c156ec8916a32ff31d7ada873485b65b5d.png';
