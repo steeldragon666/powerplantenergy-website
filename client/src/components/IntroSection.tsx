@@ -3,11 +3,12 @@ import imgGradient from "/assets/478e4b247e5b6e4702d7984347746e9514bb5334.png";
 
 interface IntroSectionProps {
   sustainableImage?: string;
+  id?: string;
 }
 
-export default function IntroSection({ sustainableImage }: IntroSectionProps) {
+export default function IntroSection({ sustainableImage, id }: IntroSectionProps) {
   return (
-    <section className="relative py-32">
+    <section id={id} className="relative py-32" aria-labelledby="intro-heading">
       {/* Gradient Fade Top */}
       <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black via-black/50 to-black/0 z-[1]" />
       
@@ -53,7 +54,7 @@ export default function IntroSection({ sustainableImage }: IntroSectionProps) {
               {sustainableImage && (
                 <ImageWithFallback
                   src={sustainableImage}
-                  alt="Sustainable industrial technology"
+                  alt="Australian renewable energy landscape showing sustainable bamboo cultivation for biorefinery processing"
                   className="w-full h-full object-cover"
                 />
               )}

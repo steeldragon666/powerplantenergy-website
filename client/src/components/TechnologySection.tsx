@@ -1,6 +1,10 @@
 import svgPaths from "../imports/svg-8snommzkdn";
 
-export default function TechnologySection() {
+interface TechnologySectionProps {
+  id?: string;
+}
+
+export default function TechnologySection({ id }: TechnologySectionProps) {
   const metrics = [
     { value: '85-90%', label: 'Cellulose Recovery', color: 'from-emerald-500 to-teal-600' },
     { value: '98%', label: 'Solvent Recovery', color: 'from-teal-500 to-blue-600' },
@@ -23,7 +27,7 @@ export default function TechnologySection() {
   ];
 
   return (
-    <section className="relative py-32">
+    <section id={id} className="relative py-32" aria-labelledby="technology-heading">
       {/* Gradient Fade Overlays */}
       <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black via-black/50 to-black/0 z-[1]" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-black/0 via-black/50 to-black z-[1]" />

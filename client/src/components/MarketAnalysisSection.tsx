@@ -1,6 +1,10 @@
 import imgGradient from "/assets/c922e7eebf2714905877e20d2530180d750f87fe.png";
 
-export default function MarketAnalysisSection() {
+interface MarketAnalysisSectionProps {
+  id?: string;
+}
+
+export default function MarketAnalysisSection({ id }: MarketAnalysisSectionProps) {
   const graphiteDrivers = [
     'Electric vehicle adoption (300M+ EVs by 2030)',
     'Energy storage systems growth',
@@ -16,7 +20,7 @@ export default function MarketAnalysisSection() {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section id={id} className="relative py-32 overflow-hidden" aria-labelledby="market-heading">
       {/* Background Gradient */}
       <div className="absolute inset-0 opacity-40">
         <img 

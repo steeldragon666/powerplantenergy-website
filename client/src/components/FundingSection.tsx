@@ -1,7 +1,11 @@
 import svgPaths from "../imports/svg-urns9myfok";
 import imgLandscape from "/assets/186001e6f78460078ac26abf709dbf30de0f0555.png";
 
-export default function FundingSection() {
+interface FundingSectionProps {
+  id?: string;
+}
+
+export default function FundingSection({ id }: FundingSectionProps) {
   const fundingTiers = [
     {
       title: 'Immediate Deployment',
@@ -33,7 +37,7 @@ export default function FundingSection() {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section id={id} className="relative py-32 overflow-hidden" aria-labelledby="funding-heading">
       {/* Background Image */}
       <div className="absolute inset-0 opacity-20">
         <img 

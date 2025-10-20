@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 import imgGradient from "/assets/e2d26e482ccb5c9b5eb16acb69dfbb106707d8f8.png";
 
-export default function NewsSection() {
+interface NewsSectionProps {
+  id?: string;
+}
+
+export default function NewsSection({ id }: NewsSectionProps) {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const articles = [
@@ -58,7 +62,7 @@ export default function NewsSection() {
   };
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section id={id} className="relative py-32 overflow-hidden" aria-labelledby="news-heading">
       {/* Gradient Background */}
       <div className="absolute inset-0 opacity-40">
         <img 

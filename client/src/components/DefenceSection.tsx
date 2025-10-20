@@ -1,7 +1,11 @@
 import imgGradient from "/assets/9d08830d73ac68d798cb01e6045b08d28ab08da9.png";
 import { Shield, Zap, Lock } from 'lucide-react';
 
-export default function DefenceSection() {
+interface DefenceSectionProps {
+  id?: string;
+}
+
+export default function DefenceSection({ id }: DefenceSectionProps) {
   const capabilities = [
     {
       icon: Shield,
@@ -21,7 +25,7 @@ export default function DefenceSection() {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section id={id} className="relative py-32 overflow-hidden" aria-labelledby="defence-heading">
       {/* Gradient Background Image */}
       <div className="absolute inset-0">
         <img 

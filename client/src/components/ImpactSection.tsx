@@ -1,8 +1,12 @@
 import imgGradient from "/assets/478e4b247e5b6e4702d7984347746e9514bb5334.png";
 
-export default function ImpactSection() {
+interface ImpactSectionProps {
+  id?: string;
+}
+
+export default function ImpactSection({ id }: ImpactSectionProps) {
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section id={id} className="relative py-32 overflow-hidden" aria-labelledby="impact-heading">
       {/* Background Gradient Image */}
       <div className="absolute inset-0 opacity-30">
         <img 
