@@ -1,41 +1,55 @@
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
-import ErrorBoundary from "./components/ErrorBoundary";
-import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
+import Header from './components/Header';
+import HeroSection from './components/HeroSection';
+import IntroSection from './components/IntroSection';
+import DefenceSection from './components/DefenceSection';
+import MarketAnalysisSection from './components/MarketAnalysisSection';
+import FundingSection from './components/FundingSection';
+import ProblemSection from './components/ProblemSection';
+import SolutionSection from './components/SolutionSection';
+import TechnologySection from './components/TechnologySection';
+import ImpactSection from './components/ImpactSection';
+import TractionSection from './components/TractionSection';
+import NewsSection from './components/NewsSection';
+import SocialsSection from './components/SocialsSection';
+import Footer from './components/Footer';
+import ImageBanner from './components/ImageBanner';
+import bannerAlgae from 'figma:asset/9d08830d73ac68d798cb01e6045b08d28ab08da9.png';
+import bannerFerns from 'figma:asset/bcde4468d71419aba6de35acbee5d378cbba56a1.png';
+import bannerLeafTexture from 'figma:asset/43fa792d079af58b4e6e9c6ce3f7a30f47c3917a.png';
+import bannerLandscape from 'figma:asset/947426c156ec8916a32ff31d7ada873485b65b5d.png';
+import mountainFog from 'figma:asset/465b4bf243ce8746456a0950c0cc39822e9116d9.png';
 
-function Router() {
+export default function App() {
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <div className="bg-black min-h-screen">
+      <Header />
+      <main>
+        <HeroSection />
+        <IntroSection sustainableImage={mountainFog} />
+        <DefenceSection />
+        <MarketAnalysisSection />
+        
+        <ImageBanner src={bannerFerns} alt="Green ferns representing sustainable biomass" />
+        
+        <FundingSection />
+        <ProblemSection />
+        <SolutionSection />
+        
+        <ImageBanner src={bannerAlgae} alt="Sustainable biomass transformation" />
+        
+        <TechnologySection />
+        <ImpactSection />
+        <TractionSection />
+        
+        <ImageBanner src={bannerLeafTexture} alt="Detailed leaf texture showing natural transformation" />
+        
+        <NewsSection />
+        <SocialsSection />
+        
+        <ImageBanner src={bannerLandscape} alt="Transformative journey through sustainable innovation" height="h-[700px]" />
+      </main>
+      <Footer />
+    </div>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
-function App() {
-  return (
-    <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
-  );
-}
-
-export default App;
