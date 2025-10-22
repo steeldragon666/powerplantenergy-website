@@ -27,12 +27,12 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-[1920px] mx-auto px-10 py-6">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 md:px-10 py-4 md:py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="content-stretch flex font-['Poppins:Medium',_sans-serif] items-start leading-[1.4] not-italic text-nowrap text-white whitespace-pre hover:opacity-80 transition-opacity">
-            <p className="relative shrink-0 text-[24px] tracking-[-0.72px]">Power Plant</p>
-            <p className="relative shrink-0 text-[10px] tracking-[-0.3px]">TM</p>
+          <Link to="/" className="content-stretch flex font-['Poppins:Medium',_sans-serif] items-start leading-[1.4] not-italic text-nowrap text-white whitespace-pre hover:opacity-80 transition-opacity" aria-label="Power Plant Energy Home">
+            <p className="relative shrink-0 text-[clamp(1.25rem,4vw,1.5rem)] tracking-[-0.72px]">Power Plant</p>
+            <p className="relative shrink-0 text-[clamp(0.5rem,1.5vw,0.625rem)] tracking-[-0.3px]">TM</p>
           </Link>
 
           {/* Center Icon */}
@@ -65,8 +65,9 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-white hover:text-white/80 transition-colors"
+            className="lg:hidden text-white hover:text-white/80 transition-colors p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -74,8 +75,8 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="lg:hidden mt-8 pb-4 border-t border-white/10 pt-8">
-            <div className="flex flex-col gap-4">
+          <nav className="lg:hidden mt-4 pb-4 border-t border-white/10 pt-4" aria-label="Mobile navigation">
+            <div className="flex flex-col gap-3">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
