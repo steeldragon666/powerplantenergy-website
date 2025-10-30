@@ -9,13 +9,13 @@ export default function SocialsSection({ id }: SocialsSectionProps) {
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      url: 'https://linkedin.com',
+      url: 'https://www.linkedin.com/company/power-plant-energy',
       description: 'Follow our professional updates'
     },
     {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://instagram.com',
+      url: 'https://www.instagram.com/power_plant_energy/',
       description: 'Explore our visual journey'
     },
     {
