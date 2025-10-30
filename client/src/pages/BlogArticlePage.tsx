@@ -13,18 +13,28 @@ export default function BlogArticlePage() {
 
   useEffect(() => {
     if (article) {
-      // Load the markdown content
-      const filename = `blog_${article.id}_${article.slug.split('-')[0]}.md`;
-      fetch(`/blog/${filename}`)
-        .then(res => res.text())
-        .then(text => {
-          setContent(text);
-          setLoading(false);
-        })
-        .catch(err => {
-          console.error('Error loading article:', err);
-          setLoading(false);
-        });
+      // Load the markdown content - map article ID to filename
+      const filenameMap: Record<string, string> = {
+        '1': 'blog_1_beema_bamboo.md',
+        '2': 'blog_2_industry_sentiment.md',
+        '3': 'blog_3_agricultural_limitations.md',
+        '4': 'blog_4_graphite_patents.md',
+        '5': 'blog_5_industry_development.md'
+      };
+      
+      const filename = filenameMap[article.id];
+      if (filename) {
+        fetch(`/blog/${filename}`)
+          .then(res => res.text())
+          .then(text => {
+            setContent(text);
+            setLoading(false);
+          })
+          .catch(err => {
+            console.error('Error loading article:', err);
+            setLoading(false);
+          });
+      }
     }
   }, [article]);
 
