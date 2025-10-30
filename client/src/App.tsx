@@ -8,6 +8,7 @@ import TechnologyPage from './pages/TechnologyPage';
 import ProjectsPage from './pages/ProjectsPage';
 import InsightsPage from './pages/InsightsPage';
 import ContactPage from './pages/ContactPage';
+import BlogArticlePage from './pages/BlogArticlePage';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="technology" element={<TechnologyPage />} />
           <Route path="projects" element={<ProjectsPage />} />
           <Route path="insights" element={<InsightsPage />} />
+          <Route path="insights/:slug" element={<BlogArticlePage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>

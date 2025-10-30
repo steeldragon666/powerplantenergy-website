@@ -1,5 +1,6 @@
 import SEO from '../components/SEO';
-import NewsSection from '../components/NewsSection';
+import { blogArticles } from '../data/blog-articles';
+import { Link } from 'wouter';
 
 export default function InsightsPage() {
   const structuredData = {
@@ -40,8 +41,41 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      {/* News Section - Reuse existing component */}
-      <NewsSection />
+      {/* Blog Articles Grid */}
+      <section className="relative py-32">
+        <div className="max-w-[1920px] mx-auto px-10">
+          <h2 className="font-['Poppins:Medium',_sans-serif] leading-[1.1] not-italic text-[64px] text-white tracking-[-3.84px] mb-16 text-center">
+            Featured Articles
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogArticles.map((article) => (
+              <Link key={article.id} href={`/insights/${article.slug}`}>
+                <a className="block bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all duration-300 cursor-pointer group">
+                  <div className="mb-4">
+                    <span className="inline-block bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-sm font-['Poppins:Medium',_sans-serif]">
+                      {article.category}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-[24px] text-white mb-4 tracking-[-0.96px] font-['Poppins:SemiBold',_sans-serif] group-hover:text-emerald-400 transition-colors">
+                    {article.title}
+                  </h3>
+                  
+                  <p className="text-white/80 text-[16px] leading-[1.6] mb-6">
+                    {article.excerpt}
+                  </p>
+                  
+                  <div className="flex items-center justify-between text-white/60 text-[14px]">
+                    <span>{article.date}</span>
+                    <span>{article.readTime}</span>
+                  </div>
+                </a>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Industry Analysis */}
       <section className="relative py-32 bg-gradient-to-b from-black via-indigo-950/10 to-black">
@@ -103,6 +137,11 @@ export default function InsightsPage() {
           <p className="text-white/80 text-[20px] mb-12 max-w-3xl mx-auto">
             Follow our progress and connect with our team to discuss how Power Plant Energy can support your organisation's sustainability and sovereignty objectives.
           </p>
+          <Link href="/contact">
+            <a className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-['Poppins:SemiBold',_sans-serif] px-12 py-4 rounded-lg text-[18px] tracking-[-0.36px] transition-all duration-300">
+              Contact Now
+            </a>
+          </Link>
         </div>
       </section>
     </>
