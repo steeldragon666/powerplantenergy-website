@@ -242,15 +242,15 @@ export default function ContactPage() {
                       value={formData.category}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-emerald-500 transition-colors"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-emerald-500 transition-colors [&>option]:bg-gray-900 [&>option]:text-white [&>option]:py-2"
                     >
-                      <option value="" className="bg-gray-900">Select a category</option>
-                      <option value="defence" className="bg-gray-900">Defence & Government</option>
-                      <option value="partnership" className="bg-gray-900">Commercial Partnerships</option>
-                      <option value="investment" className="bg-gray-900">Investment & Finance</option>
-                      <option value="technology" className="bg-gray-900">Technology & Research</option>
-                      <option value="media" className="bg-gray-900">Media & Communications</option>
-                      <option value="general" className="bg-gray-900">General Inquiry</option>
+                      <option value="">Select a category</option>
+                      <option value="defence">Defence & Government</option>
+                      <option value="partnership">Commercial Partnerships</option>
+                      <option value="investment">Investment & Finance</option>
+                      <option value="technology">Technology & Research</option>
+                      <option value="media">Media & Communications</option>
+                      <option value="general">General Inquiry</option>
                     </select>
                   </div>
 
