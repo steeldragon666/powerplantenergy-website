@@ -19,6 +19,12 @@ router.post('/api/contact', async (req, res) => {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ error: 'Invalid email address' });
+    }
+
     // Generate AI response using Claude
     const aiResponse = await anthropic.messages.create({
       model: 'claude-3-5-sonnet-20241022',
@@ -50,8 +56,7 @@ Generate ONLY the email body text (no subject line, no email headers). The respo
 
     const emailBody = aiResponse.content[0].type === 'text' ? aiResponse.content[0].text : '';
 
-    // In a production environment, you would send this via an email service
-    // For now, we'll log it and send to the contact email
+    // Log the submission (Vercel logs are accessible in dashboard)
     console.log('=== NEW CONTACT FORM SUBMISSION ===');
     console.log(`From: ${name} <${email}>`);
     console.log(`Organization: ${organization || 'Not provided'}`);
@@ -59,42 +64,31 @@ Generate ONLY the email body text (no subject line, no email headers). The respo
     console.log(`Message: ${message}`);
     console.log('\n=== AI GENERATED RESPONSE ===');
     console.log(emailBody);
+    console.log(`\nForwarded to: ${CONTACT_EMAIL}`);
     console.log('===================================\n');
 
-    // TODO: Integrate with email service (SendGrid, AWS SES, etc.)
-    // For now, we'll simulate success
+    // TODO: Integrate with email service (SendGrid, AWS SES, Resend, etc.)
+    // For now, submissions are logged to Vercel function logs
     
-    // Store the submission in a simple log file
-    const fs = require('fs');
-    const path = require('path');
-    const logDir = path.join(__dirname, '../../logs');
-    const logFile = path.join(logDir, 'contact-submissions.log');
-
-    // Create logs directory if it doesn't exist
-    if (!fs.existsSync(logDir)) {
-      fs.mkdirSync(logDir, { recursive: true });
-    }
-
-    const logEntry = {
-      timestamp: new Date().toISOString(),
-      name,
-      email,
-      organization,
-      category,
-      message,
-      aiResponse: emailBody,
-      forwardedTo: CONTACT_EMAIL
-    };
-
-    fs.appendFileSync(logFile, JSON.stringify(logEntry) + '\n');
-
     res.status(200).json({ 
       success: true, 
       message: 'Your inquiry has been received. We will respond within 48 hours.' 
     });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error processing contact form:', error);
+    
+    // Provide more specific error messages
+    if (error.status === 401) {
+      console.error('Anthropic API authentication failed. Check ANTHROPIC_API_KEY environment variable.');
+      return res.status(500).json({ error: 'Configuration error. Please contact support.' });
+    }
+    
+    if (error.status === 429) {
+      console.error('Anthropic API rate limit exceeded.');
+      return res.status(429).json({ error: 'Too many requests. Please try again later.' });
+    }
+    
     res.status(500).json({ error: 'Failed to process your inquiry. Please try again.' });
   }
 });
